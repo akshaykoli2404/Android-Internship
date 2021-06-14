@@ -1,221 +1,278 @@
-Screen-1 
- 
- Java.Code
- 
- MainActivity.java :
+Home Screen
 
-package com.example.akashtechnolabstask06;
+package com.example.splashactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
-
-public class MainActivity extends AppCompatActivity {
-
-    MediaPlayer player;
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        getSupportActionBar().hide();
-
-        player = MediaPlayer.create(MainActivity.this,R.raw.willywillium);
-        player.setLooping(true);
-        player.start();
-
+        setContentView(R.layout.activity_home);
     }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        player.start();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        player.pause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        player.stop();
-        player.release();
-    }
-
-   }
-   
-   Xml.Code
-   
-   <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/splash_iv"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/splashone"
-        android:contentDescription="@string/text1" />
-
-</RelativeLayout>
-
-
-Screen-2
-
-Java.Code
-
-MainActivity.java :
-
-package com.example.akashtechnolabstask06;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.media.MediaPlayer;
-import android.os.Bundle;
-
-
-public class MainActivity extends AppCompatActivity {
-
-    MediaPlayer player;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        getSupportActionBar().hide();
-
-        player = MediaPlayer.create(MainActivity.this,R.raw.willywillium);
-        player.setLooping(true);
-        player.start();
-
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        player.start();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        player.pause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        player.stop();
-        player.release();
-    }
-
-   }
-   
-   Xml.Code
-   
-   <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/splash_iv"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/splashtwo"
-        android:contentDescription="@string/text1" />
-
-</RelativeLayout>
-
-
-
-Screen-3
-
-Java.Code:
-
-package com.example.akashtechnolabstask06;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.media.MediaPlayer;
-import android.os.Bundle;
-
-
-public class MainActivity extends AppCompatActivity {
-
-    MediaPlayer player;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        getSupportActionBar().hide();
-
-        player = MediaPlayer.create(MainActivity.this,R.raw.willywillium);
-        player.setLooping(true);
-        player.start();
-
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        player.start();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        player.pause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        player.stop();
-        player.release();
-    }
-
-   }
-   
-   Xml.Code
-   
-   
-   <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/splash_iv"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/splashone"
-        android:contentDescription="@string/text1" />
-
+}
 
  
+ MainActivity Screen
+
+
+package com.example.splashactivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+
+import static android.os.Build.VERSION_CODES.M;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.black));
+        }
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.tale);
+        mediaPlayer.start();
+//
+
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                try {
+                    setContentView(R.layout.activity_main);
+                    sleep(3000);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                finally {
+                    Intent intent = new Intent(MainActivity.this, Splash2.class);
+                    startActivity(intent);
+                }
+            }
+        };
+        thread.start();
+
+    }
+
+
+}
+
+
+Splash.Screen
+
+package com.example.splashactivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.View;
+
+public class Splash2 extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash2);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                try {
+                    setContentView(R.layout.content_splash2);
+                    sleep(3000);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                finally {
+                    Intent intent = new Intent(Splash2.this, Splash3.class);
+                    startActivity(intent);
+                }
+            }
+        };
+        thread.start();
+
+    }
+
+
+    }
+
+
+Splash Screen
+
+
+package com.example.splashactivity;
+
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.View;
+
+public class Splash3 extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash3);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                try {
+                    setContentView(R.layout.activity_splash3);
+                    sleep(3000);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                finally {
+                    Intent intent = new Intent(Splash3.this, Home.class);
+                    startActivity(intent);
+                }
+            }
+        };
+        thread.start();
+
+    }
+
+
+}
+
+
+XML Code:
+
+home.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".Home"
+    android:background="@drawable/wood">
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Welcome"
+        android:textSize="60dp"/>
+
+</LinearLayout>
+
+
+Main.xml
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+
+
+</LinearLayout>
+
+Splash Screen
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Splash2">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.SplashActivity.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.SplashActivity.PopupOverlay"
+            android:visibility="gone"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_splash2" />
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+Splash Screen
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".Splash3">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/narutopm" />
+
+
+</LinearLayout>
