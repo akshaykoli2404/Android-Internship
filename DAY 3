@@ -5,16 +5,47 @@ package com.example.loginpage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+       EditText username, password;
+       Button btnLogin;
+       String correct_username ="admin";
+       String correct_password="Pass012";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+      username=findViewById(R.id.username);
+      password=findViewById(R.id.password);
+      btnLogin=findViewById(R.id.btnLogin);
+
+      btnLogin.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+
+          if(TextUtils.isEmpty(username.getText().toString())) || TextUtils.isEmpty(password.getText().toString())
+              {
+                  Toast.makeText(MainActivity.this, "Empty data provided", Toast.LENGTH_SHORT).show();
+              }
+          else if(username.getText().toString().equals(correct_username))
+              {
+                  if(password.getText().toString().equals(correct_password) ){
+                      Toast.makeText(MainActivity.this, "Successful login", Toast.LENGTH_SHORT).show();
+                  }
+
+              }else {
+
+                  Toast.makeText(MainActivity.this, "Invalid username/password", Toast.LENGTH_SHORT).show();
+              }
+          }
+      });
     }
 }
-
 Xml.Code
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -23,151 +54,51 @@ Xml.Code
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_laptop"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:fontFamily="sans-serif-black"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/text1"
-        android:textColor="#101010"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="271dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="188dp"
+        android:id="@+id/username"
+        android:layout_width="322dp"
+        android:layout_height="37dp"
         android:ems="10"
-        android:hint="@string/edittext1"
-        android:importantForAutofill="no"
+        android:hint="Username"
         android:inputType="textPersonName"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="151dp" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword"
-        android:layout_width="265dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="56dp"
+        android:id="@+id/password"
+        android:layout_width="313dp"
+        android:layout_height="43dp"
         android:ems="10"
-        android:hint="@string/edittext2"
-        android:importantForAutofill="no"
-        android:inputType="numberPassword"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        android:hint="password"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="219dp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="120dp"
-  .Code
-  
-  android:layout_height="58dp"
-        android:text="@string/login"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:id="@+id/btnLogin"
+        android:layout_width="167dp"
+        android:layout_height="73dp"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.435" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:textColor="#100F0F"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_laptop"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:fontFamily="sans-serif-black"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/text1"
-        android:textColor="#101010"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="271dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="188dp"
-        android:ems="10"
-        android:hint="@string/edittext1"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextNumberPassword"
-        android:layout_width="265dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="@string/edittext2"
-        android:importantForAutofill="no"
-        android:inputType="numberPassword"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="120dp"
-        android:layout_height="58dp"
-        android:text="@string/login"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword"
-        app:layout_constraintVertical_bias="0.292" />
-</androidx.constraintlayout.widget.ConstraintLay
