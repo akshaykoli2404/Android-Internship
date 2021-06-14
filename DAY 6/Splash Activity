@@ -1,0 +1,221 @@
+Screen-1 
+ 
+ Java.Code
+ 
+ MainActivity.java :
+
+package com.example.akashtechnolabstask06;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer player;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getSupportActionBar().hide();
+
+        player = MediaPlayer.create(MainActivity.this,R.raw.willywillium);
+        player.setLooping(true);
+        player.start();
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        player.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.stop();
+        player.release();
+    }
+
+   }
+   
+   Xml.Code
+   
+   <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/splash_iv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/splashone"
+        android:contentDescription="@string/text1" />
+
+</RelativeLayout>
+
+
+Screen-2
+
+Java.Code
+
+MainActivity.java :
+
+package com.example.akashtechnolabstask06;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer player;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getSupportActionBar().hide();
+
+        player = MediaPlayer.create(MainActivity.this,R.raw.willywillium);
+        player.setLooping(true);
+        player.start();
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        player.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.stop();
+        player.release();
+    }
+
+   }
+   
+   Xml.Code
+   
+   <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/splash_iv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/splashtwo"
+        android:contentDescription="@string/text1" />
+
+</RelativeLayout>
+
+
+
+Screen-3
+
+Java.Code:
+
+package com.example.akashtechnolabstask06;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer player;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getSupportActionBar().hide();
+
+        player = MediaPlayer.create(MainActivity.this,R.raw.willywillium);
+        player.setLooping(true);
+        player.start();
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        player.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.stop();
+        player.release();
+    }
+
+   }
+   
+   Xml.Code
+   
+   
+   <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/splash_iv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/splashone"
+        android:contentDescription="@string/text1" />
+
+
+ 
